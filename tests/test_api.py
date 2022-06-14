@@ -15,13 +15,8 @@ def test_hello():
 class APITestCase(unittest.TestCase):
     def setUp(self):
         self.app = app
-        # self.app_context = self.app.app_context()
-        # self.app_context.push()
         self.client = self.app.test_client()
         g_store.clear()
-
-    # def tearDown(self):
-    #     self.app_context.pop()
 
     def test_CRUD(self):
         # create a task

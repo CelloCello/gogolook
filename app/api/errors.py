@@ -10,7 +10,6 @@ logger = logging.getLogger()
 
 @app.errorhandler(Exception)
 def handle_unexpected_error(error):
-    print("eeeee111111", error)
     except_msg = traceback.format_exc()
     logger.error(except_msg)
     result = {
@@ -23,6 +22,5 @@ def handle_unexpected_error(error):
 
 @app.errorhandler(BaseError)
 def handle_base_error(error):
-    print("eeeee222222")
     result = {"exception": repr(error), "traceback": traceback.format_exc()}
     return json_response(result, error.status_code)
